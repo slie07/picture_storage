@@ -27,7 +27,7 @@
 
                             $user = User::instantation($found_user);
 
-                            echo $user->id;
+                            echo $user->username;
 
                             echo "<br>";
                            
