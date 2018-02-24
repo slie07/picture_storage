@@ -10,36 +10,25 @@
 
                             <?php 
 
-                            
+                            // $user = new User();
+
+                            // $user->username = "Example_username";
+                            // $user->username = "Example_password";
+                            // $user->username = "Stevano";
+                            // $user->username = "Lie";
+
+                            // $user->create();
+
+                    
+                            $user = User::find_user_by_id(3);
+                            $user->delete();
 
                             
 
-                            // $result_set = User::find_all_users();
-
-                            // while($row = mysqli_fetch_array($result_set)) {
-
-                            // echo $row['username'] . "<br>";
+                            // $user->last_name = "WILLIAMS";
+                            // $user->update();
 
 
-                            // }
-
-                            // $found_user = User::find_user_by_id(1);
-
-                            // $user = User::instantation($found_user);
-
-                            // echo $user->username;
-
-                            // echo "<br>";
-
-                            // $users = User::find_all_users();
-
-                            // foreach ($users as $user) {
-                            //     echo $user->username . "<br>";
-                            // }
-                           
-                           $found_user = User::find_user_by_id(2);
-
-                           echo $found_user->username;
 
                          
 

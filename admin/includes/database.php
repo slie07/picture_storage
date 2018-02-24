@@ -26,9 +26,14 @@ class Database {
 	$escaped_string = $this->connection->real_escape_string($string);
 	return $escaped_string;
 	}
-	public function the_insert_id() {
-	return $this->connection->insert_id;
-	} 
+
+	public function the_insert_id(){
+
+
+		return mysqli_insert_id($this->connection);
+		return $this->connection->insert_id;
+	}
+
 }
 $database = new Database();
 // $database->open_db_connection();

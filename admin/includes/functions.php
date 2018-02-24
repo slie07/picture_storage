@@ -16,6 +16,13 @@ if(is_file($the_path) && !class_exists($class)) {
 
 }
 
+function redirect($location) {
+
+header("Location: {$location}");
+
+
+
+}
 
 
 

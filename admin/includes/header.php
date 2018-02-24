@@ -1,7 +1,8 @@
-
-
 <?php ob_start(); ?>   <!-- to turn the engine -->
 <?php require_once("init.php"); ?>
+
+
+
 
 
 <!DOCTYPE html>

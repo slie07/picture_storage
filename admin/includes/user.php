@@ -51,7 +51,6 @@ return !empty($the_result_array) ? array_shift($the_result_array) : false;
 
 
 
-return $found_user;
 
 }
 
@@ -69,10 +68,28 @@ while($row = mysqli_fetch_array($result_set)){
 
 return $the_object_array;
 
+}
 
+public static function verify_user($username, $password) {
+
+global $database;
+
+$username = $database->escape_string($username);
+$password = $database->escape_string($password);
+
+
+$sql = "SELECT * FROM users WHERE ";
+$sql .= "username = '{$username}' ";	
+$sql .= "AND password = '{$password}' ";
+$sql .= "LIMIT 1";
+
+$the_result_array = self::find_this_query($sql);
+
+return !empty($the_result_array) ? array_shift($the_result_array) : false;
 
 
 }
+
 
 public static function instantation($the_record) {
 
@@ -109,7 +126,69 @@ return array_key_exists($the_attribute, $object_properties);
 
 }
 
+public function create() {
+global $database;
 
+$sql = "INSERT INTO users (username, password, first_name, last_name)";
+$sql .= "VALUES ('";
+$sql .= $database->escape_string($this->username) . "', '";
+$sql .= $database->escape_string($this->password) . "', '";
+$sql .= $database->escape_string($this->first_name) . "', '";
+$sql .= $database->escape_string($this->last_name) . "')";
+
+if($database->query($sql)) {
+
+    $this->id = $database->the_insert_id();
+  
+  return true;
+
+} else {
+
+ return false;
+
+
+}
+
+
+
+
+
+} // Create Method
+
+public function update() {
+
+global $database;
+
+$sql = "UPDATE users SET ";
+$sql .= "username= '" . $database->escape_string($this->username) . "', ";
+$sql .= "password= '" . $database->escape_string($this->password) . "', ";
+$sql .= "first_name= '" . $database->escape_string($this->first_name) . "', ";
+$sql .= "last_name= '" . $database->escape_string($this->last_name) . "' ";
+$sql .= " WHERE id= " . $database->escape_string($this->id);
+
+
+$database->query($sql);
+
+return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+
+
+} // End of Update Method
+
+
+
+public function delete() {
+    global $database;
+
+    $sql = "DELETE FROM users ";
+    $sql .= "WHERE id=" . $database->escape_string($this->id);
+    $sql .= " LIMIT 1";
+
+    $database->query($sql);
+
+    return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+
+
+}
 
 
  } ?>
