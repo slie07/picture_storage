@@ -1,4 +1,4 @@
-<div class="container-fluid">
+    <div class="container-fluid">
 
                 <!-- Page Heading -->
                 <div class="row">
@@ -12,23 +12,28 @@
 
                             // $user = new User();
 
-                            // $user->username = "Example_username";
-                            // $user->username = "Example_password";
-                            // $user->username = "Stevano";
-                            // $user->username = "Lie";
+                            // $user->username = "Student";
+                            // $user->password = "Somethingweird";
+                            // $user->first_name = "Solider";
+                            // $user->last_name = "Whoknow";
 
                             // $user->create();
 
                     
-                            $user = User::find_user_by_id(3);
-                            $user->delete();
+                            // $user = User::find_user_by_id(4);
+                            // $user->delete();
 
-                            
 
+
+                            // $user = User::find_user_by_id(5);
                             // $user->last_name = "WILLIAMS";
                             // $user->update();
 
+                            $users = User::find_all();
 
+                            foreach ($users as $user) {
+                                echo $user->username;
+                            }
 
                          
 
