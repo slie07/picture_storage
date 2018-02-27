@@ -29,14 +29,24 @@
                             // $user->last_name = "WILLIAMS";
                             // $user->update();
 
-                            $users = User::find_all();
+                            // $users = User::find_all();
 
-                            foreach ($users as $user) {
-                                echo $user->username;
-                            }
+                            // foreach ($users as $user) {
+                            //     echo $user->username;
+                            // }
 
                          
+                            // $user = new User();
 
+                            // $user->username = "NEW USER";
+                            // $user->save();
+
+                            // $photos = Photo::find_all();
+                            // foreach ($photos as $photo) {
+                            //     echo $photo->title;
+                            // }
+
+                            echo INCLUDES_PATH;
 
                              ?>
                             
